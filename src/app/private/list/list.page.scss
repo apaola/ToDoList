@@ -1,0 +1,31 @@
+.title {
+    margin: 25px 0 0 10px;
+}
+.to-do {
+    background-color: grey;
+    width: fit-content;
+    border: 1px solid transparent;
+    border-radius: 10px 0 10px 0;
+    padding: 13px;
+    color: #fff;
+}
+
+ion-card-title {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #fff;
+}
+
+ion-card-content, ion-item ion-checkbox {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+ion-item ion-checkbox {
+    margin-right: 7px !important;
+}
+
+ion-item {
+    --min-height: fit-content;
+}
+

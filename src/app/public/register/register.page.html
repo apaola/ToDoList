@@ -1,0 +1,46 @@
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button [routerLink]="['/']">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content class="start">
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center padding-vertical">
+      <ion-thumbnail>
+        <img src="../../assets/img/logo-color.png">
+      </ion-thumbnail>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+
+        <div class="form">
+          <div class="ion-text-center">
+            <ion-label>Registrarse</ion-label>
+          </div>
+          <div class="ion-margin-vertical">
+            <ion-input placeholder="Nombre"></ion-input>
+            <ion-input placeholder="Correo Electrónico" class="no-borderline"></ion-input>
+            <ion-input placeholder="Contraseña" type="password"></ion-input>
+            <ion-input placeholder="Confirmar contraseña" type="password"></ion-input>
+          </div>
+        
+          <div class="" style="margin-bottom:15%;">
+            <ion-checkbox slot="start" style="margin-right: 10px;"></ion-checkbox>
+            <ion-label>Acepta los términos y condiciones.</ion-label>
+          </div>
+
+          <ion-button class="ion-text-capitalize" expand="block">Registrar</ion-button>
+          <ion-button class="ion-text-capitalize" color="danger" expand="block" [routerLink]="['/']">Cancelar</ion-button>
+        </div>       
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

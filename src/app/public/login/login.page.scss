@@ -1,0 +1,28 @@
+ion-card {
+    --background: transparent;
+}
+
+ion-input {
+    border: 1px solid grey;
+    border-radius: 0 0 5px 5px;
+}
+
+ion-input ion-icon {
+    color: grey;
+    margin: 0 0 0 10px;
+}
+
+.ion-margin-vertical {
+    margin-top: 35px;
+    margin-bottom: 22px;
+}
+
+.no-borderline {
+    border-bottom: unset;
+    border-radius: 5px 5px 0 0;
+}
+
+.padding-vertical {
+    padding-top: 25%;
+    padding-bottom: 0;
+}

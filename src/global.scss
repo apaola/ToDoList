@@ -24,3 +24,39 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-searchbar{
+    .searchbar-input-container{
+        .searchbar-input{
+            border-radius: 30px !important;
+        }
+    }
+}
+
+ion-thumbnail {
+    height: 65%;
+    width: 65%;
+}
+
+ion-content, ion-header, ion-toolbar {
+    --background: #f4cd6f;
+}
+
+.padding-vertical {
+    padding: 70px 0 30px 0;
+}
+
+ion-content.start {
+    --background: #fff;
+}
+
+.form {
+    margin: 10px;
+    padding: 13px 16px;
+}
+
+.form ion-button {
+    height: 3.5em;
+    margin-bottom: 15px;
+    --ion-color-primary: #f4cd6f;
+}
