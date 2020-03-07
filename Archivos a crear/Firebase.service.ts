@@ -40,3 +40,16 @@ pdateTask(taskKey, value){
     )
   })
 }
+
+/*metodo de eliminar producto*/
+deleteTask(taskKey){
+  return new Promise<any>((resolve, reject) => {
+    let currentUser = firebase.auth().currentUser;
+    this.afs.collection('people').doc(currentUser.uid)
+    .collection('task').doc(taskKey).delete()
+    .then(
+      res => resolve(res),
+      err => reject(err)
+    )
+  })
+}
