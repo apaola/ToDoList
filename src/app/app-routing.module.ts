@@ -19,11 +19,11 @@ const routes: Routes = [
     loadChildren: () => import('./private/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: '',
+    path: 'templates',
     loadChildren: () => import('./shared/template/template.module').then( m => m.TemplatePageModule)
   },
   {
-    path: 'login',
+    path: '',
     loadChildren: () => import('./public/login/login.module').then( m => m.LoginPageModule)
   },
   {
