@@ -1,12 +1,12 @@
 /*metodo para añadir producto*
-createTask(value){
+createListProduct(value){
   return new Promise<any>((resolve, reject) => {
     let currentUser = firebase.auth().currentUser;
-    this.afs.collection('people').doc(currentUser.uid)
-    .collection('task').add({
-      title: value.title,
+    this.afs.collection('users').doc(currentUser.user_id)
+    .collection('lists').add({
+      list_id: value.title,
       description: value.description,
-      image: value.image
+      user_id: currentUser.user_id
     })
     .then(
       res => resolve(res),
@@ -16,12 +16,14 @@ createTask(value){
 }
 
 /*listar todos los productos*/
-getTasks(){
+getPr
+
+getList(){
   return new Promise<any>((resolve, reject) => {
     let currentUser = firebase.auth().currentUser;
     this.snapshotChangesSubscription = 
-    this.afs.collection('people').doc(currentUser.uid)
-    .collection('task').snapshotChanges()
+    this.afs.collection('users').doc(currentUser.user_id)
+    .collection('lists').snapshotChanges()
     .subscribe(snapshots => {
       resolve(snapshots);
     })
@@ -29,11 +31,11 @@ getTasks(){
 }
 
 /*actualizar producto*/
-pdateTask(taskKey, value){
+updateProductList(listKey, value){
   return new Promise<any>((resolve, reject) => {
     let currentUser = firebase.auth().currentUser;
-    this.afs.collection('people').doc(currentUser.uid)
-    .collection('task').doc(taskKey).set(value)
+    this.afs.collection('users').doc(currentUser.user_id)
+    .collection('lists').doc(listKey).set(value)
     .then(
       res => resolve(res),
       err => reject(err)
@@ -42,11 +44,11 @@ pdateTask(taskKey, value){
 }
 
 /*metodo de eliminar producto*/
-deleteTask(taskKey){
+deleteListProduct(productKey){
   return new Promise<any>((resolve, reject) => {
     let currentUser = firebase.auth().currentUser;
-    this.afs.collection('people').doc(currentUser.uid)
-    .collection('task').doc(taskKey).delete()
+    this.afs.collection('users').doc(currentUser.user_id)
+    .collection('lists').doc(listKey).delete()
     .then(
       res => resolve(res),
       err => reject(err)
