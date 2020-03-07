@@ -1,4 +1,4 @@
-/*metodo para crear tarea*
+/*metodo para añadir producto*
 createTask(value){
   return new Promise<any>((resolve, reject) => {
     let currentUser = firebase.auth().currentUser;
@@ -13,4 +13,17 @@ createTask(value){
       err => reject(err)
     )
   })
+}
+
+/*listar todos los productos*/
+getTasks(){
+  return new Promise<any>((resolve, reject) => {
+    let currentUser = firebase.auth().currentUser;
+    this.snapshotChangesSubscription = 
+    this.afs.collection('people').doc(currentUser.uid)
+    .collection('task').snapshotChanges()
+    .subscribe(snapshots => {
+      resolve(snapshots);
+    })
+  });
 }
