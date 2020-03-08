@@ -22,9 +22,9 @@ export class RegisterPage implements OnInit {
   }
  
   async onRegister() {
-    const user = await this.authService.onRegister(this.user);
+    const user = await this.authService.onRegister(this.user.email, this.user.password, this.user.name);
     if(user) {
-      this.router.navigate(['/']);
+      this.navigate();
     }
   }
 

@@ -1,7 +1,7 @@
+import { ListService } from './../../core/services/list.service';
+import { List } from 'src/app/core/models/list.interface';
 import { Component, OnInit } from '@angular/core';
-import { ListService } from 'src/app/core/services/list.service';
 import { Router } from '@angular/router';
-import { ListI } from 'src/app/core/models/listI.interface';
 
 @Component({
   selector: 'app-add',
@@ -10,10 +10,11 @@ import { ListI } from 'src/app/core/models/listI.interface';
 })
 export class AddPage implements OnInit {
 
-  list: ListI = {
-    user_id: '',
+  list: List = {
+    uid: '',
     description: ''
   };
+
   listId = null;
 
   constructor(private listService: ListService, private router: Router) { }
@@ -22,9 +23,8 @@ export class AddPage implements OnInit {
   }
 
   saveList(){
-    this.listService.addList(this.list).then(() => {
-      this.router.navigate(['/tabs']);
-    })
+    this.listService.addToList(this.list);
+    this.router.navigate(['/tabs']);
   }
 
 }

@@ -20,7 +20,7 @@
           <ion-card-content>
             <ion-item>
               <ion-label position="stacked">Nombre del Producto</ion-label>
-              <ion-input class="ion-padding-top" [(ngModel)]="list.description"></ion-input>
+              <ion-input class="ion-padding-top" type="text" [(ngModel)]="list.description" required="true"></ion-input>
             </ion-item>
             <ion-button expand="block" (click)="saveList()">Añadir</ion-button>
           </ion-card-content>

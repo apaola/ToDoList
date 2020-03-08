@@ -1,23 +1,24 @@
-import { ListI } from '../models/listI.interface';
+import { List } from '../models/list.interface';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as Parse from 'parse';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
 
-  private listCollection: AngularFirestoreCollection<ListI>;
-  private list: Observable<ListI[]>;
+  private listCollection: AngularFirestoreCollection<List>;
+  private list: Observable<List[]>;
   //apiUrl = 'https://parseapi.back4app.com/classes/ListDetails';
 
-  constructor(db:AngularFirestore) { 
-    this.listCollection = db.collection<ListI>('lists');
+
+  constructor(private db:AngularFirestore) { 
+    this.listCollection = db.collection<List>('lists');
     this.list = this.listCollection.snapshotChanges().pipe(map(
       actions => {
         return actions.map(a => {
@@ -29,19 +30,20 @@ export class ListService {
     ));
   }
 
+
   getLists() {
     return this.list;
   }
 
   getList(id:string) {
-    return this.listCollection.doc<ListI>(id).valueChanges();
+    return this.listCollection.doc<List>(id).valueChanges();
   }
 
-  updateList(list:ListI, id:string){
+  updateList(list:List, id:string){
     return this.listCollection.doc(id).update(list);
   }
 
-  addList(list:ListI){
+  addToList(list:List){
     return this.listCollection.add(list);
   }
 

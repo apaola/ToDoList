@@ -1,5 +1,4 @@
 import { ListService } from './../../core/services/list.service';
-import { ListI } from './../../core/models/listI.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
 
-  lists: ListI[];
+  lists: any;
 
   constructor(private listService: ListService) {
    }
