@@ -11,7 +11,8 @@ export class ListPage implements OnInit {
 
   lists: ListI[];
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService) {
+   }
 
   ngOnInit() {
     this.listService.getLists().subscribe(res => {

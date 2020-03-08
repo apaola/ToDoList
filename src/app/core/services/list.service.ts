@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import * as Parse from 'parse';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { observable, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -22,7 +22,7 @@ export class ListService {
       actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
-          const id = a.payload.doc.data();
+          const id = a.payload.doc.id;
           return {id, ...data};
         });
       }

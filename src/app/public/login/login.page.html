@@ -17,15 +17,15 @@
             <ion-label>Inicie sesión para continuar</ion-label>
           </div>
           <div class="ion-margin-vertical">
-            <ion-input placeholder="Correo Electrónico" class="no-borderline">
+            <ion-input placeholder="Correo Electrónico" class="no-borderline" [(ngModel)]="user.email">
               <ion-icon name="person-outline"></ion-icon>
             </ion-input>
-            <ion-input placeholder="Contraseña">
+            <ion-input placeholder="Contraseña" type="password" [(ngModel)]="user.password">
               <ion-icon name="key-outline"></ion-icon>
             </ion-input>
           </div>
         
-          <ion-button class="ion-text-capitalize" expand="block" (click)="navigate()">Iniciar</ion-button>
+          <ion-button class="ion-text-capitalize" expand="block" (click)="onLogin()">Iniciar</ion-button>
           <ion-button class="ion-text-capitalize" expand="block" [routerLink]="['/register']">Crear cuenta</ion-button>
         
           <div class="ion-text-center padding-vertical">

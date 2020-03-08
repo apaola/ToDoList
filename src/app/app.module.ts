@@ -14,6 +14,7 @@ import { ListService } from './core/services/list.service';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import Parse from 'parse';
 import { timer } from 'rxjs';
@@ -27,7 +28,8 @@ import { timer } from 'rxjs';
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
     StatusBar,
