@@ -2,6 +2,7 @@ import { ListService } from './../../core/services/list.service';
 import { List } from 'src/app/core/models/list.interface';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   selector: 'app-add',
@@ -10,21 +11,30 @@ import { Router } from '@angular/router';
 })
 export class AddPage implements OnInit {
 
-  list: List = {
-    uid: '',
-    description: ''
-  };
-
+  logged: any;
   listId = null;
 
-  constructor(private listService: ListService, private router: Router) { }
+  constructor(private listService: ListService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    this.logIn();
   }
+
+  list: List = {
+    uid: this.authService.isLogged.uid,
+    description: ''
+  };
 
   saveList(){
     this.listService.addToList(this.list);
     this.router.navigate(['/tabs']);
+  }
+
+  logIn(){
+    if(this.authService.isLogged) {
+      console.log(this.authService.isLogged);
+      return this.logged = this.authService.isLogged;
+    }
   }
 
 }
