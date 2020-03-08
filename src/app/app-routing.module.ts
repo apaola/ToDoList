@@ -3,8 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     loadChildren: () => import('./shared/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'list/:id',
+    loadChildren: () => import('./private/list/list.module').then( m => m.ListPageModule)
   },
   {
     path: 'list',
@@ -19,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./private/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: '',
+    path: 'templates',
     loadChildren: () => import('./shared/template/template.module').then( m => m.TemplatePageModule)
   },
   {

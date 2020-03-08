@@ -17,28 +17,19 @@
       Mi Lista
     </ion-label>
   </div>
-  <!--<ion-card class="ion-margin-vertical">
-    <div class="to-do">
-      <ion-card-header>
-        <ion-card-title class="ion-text-uppercase">Mi Lista</ion-card-title>
-      </ion-card-header>
-    </div>
   
+  <div class="ion-margin-top" style="overflow: hidden;">
+  
+    <ion-card *ngFor="let list of lists">  
     <ion-card-content>
-      <ion-list lines="none">
         <ion-item>
-          <ion-label>hola</ion-label>
+          <ion-label>{{ list.description }}</ion-label>
           <ion-checkbox slot="start"></ion-checkbox>
         </ion-item>
-        <ion-item>
-          <ion-label>hola</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-      </ion-list>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>  
+<!--  <ion-card>  
     <ion-card-content>
         <ion-item>
           <ion-label>hola</ion-label>
@@ -46,25 +37,6 @@
         </ion-item>
     </ion-card-content>
   </ion-card>-->
-  
-  <div class="ion-margin-top" style="overflow: hidden;">
-  <ion-card>  
-    <ion-card-content>
-        <ion-item>
-          <ion-label>hola</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>  
-    <ion-card-content>
-        <ion-item>
-          <ion-label>hola</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-    </ion-card-content>
-  </ion-card>
 </div>
 
 </ion-content>

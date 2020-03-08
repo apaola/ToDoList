@@ -12,8 +12,11 @@ import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ListService } from './core/services/list.service';
 
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import Parse from 'parse';
+import { timer } from 'rxjs';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +26,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     HttpClientModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment,'todolist'),
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,
