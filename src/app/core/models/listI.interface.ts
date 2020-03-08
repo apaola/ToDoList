@@ -1,5 +1,5 @@
 export interface ListI {
-    id: string;
+    id?: string;
     user_id: string;
     description: string;
 }
