@@ -1,3 +1,9 @@
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button [routerLink]="['/tabs']">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
 <ion-content>
   <ion-grid>
     <ion-row class="ion-justify-content-center padding-vertical">
@@ -20,13 +26,21 @@
           <ion-card-content>
             <ion-item>
               <ion-label position="stacked">Nombre del Producto</ion-label>
-              <ion-input class="ion-padding-top" type="text" required="true"></ion-input>
+              <ion-input class="ion-padding-top" type="text" required="true" [(ngModel)]="list.description"></ion-input>
             </ion-item>
-            <ion-button expand="block" (click)="">Añadir</ion-button>
+            <ion-button expand="block" (click)="saveChanges()">Guardar</ion-button>
+            <ion-button expand="block" [routerLink]="['/tabs']" color="danger">Cancelar</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="deleteList(listId)">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 
 </ion-content>

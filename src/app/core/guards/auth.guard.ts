@@ -24,6 +24,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
       if(this.authService.isLogged) {
+        //console.log(this.authService.isLogged);
         return true;
       }
       console.log('Access denied!');

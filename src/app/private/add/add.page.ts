@@ -11,13 +11,9 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 })
 export class AddPage implements OnInit {
 
-  logged: any;
-  listId = null;
-
   constructor(private listService: ListService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.logIn();
   }
 
   list: List = {
@@ -28,13 +24,6 @@ export class AddPage implements OnInit {
   saveList(){
     this.listService.addToList(this.list);
     this.router.navigate(['/tabs']);
-  }
-
-  logIn(){
-    if(this.authService.isLogged) {
-      console.log(this.authService.isLogged);
-      return this.logged = this.authService.isLogged;
-    }
   }
 
 }

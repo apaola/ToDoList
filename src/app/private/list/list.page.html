@@ -25,18 +25,12 @@
         <ion-item>
           <ion-label>{{ list.description }}</ion-label>
           <ion-checkbox slot="start"></ion-checkbox>
+          <ion-button color="warning" [routerLink]="['/list-details', list.id]">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-button>
         </ion-item>
     </ion-card-content>
   </ion-card>
-
-<!--  <ion-card>  
-    <ion-card-content>
-        <ion-item>
-          <ion-label>hola</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
-        </ion-item>
-    </ion-card-content>
-  </ion-card>-->
 </div>
 
 </ion-content>
