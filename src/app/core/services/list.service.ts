@@ -30,12 +30,6 @@ export class ListService {
     ));
   }
 
-
-  getListsUsers(uid: string) {
-    var res = this.db.collection('users').doc(uid).collection('lists').snapshotChanges();
-    return res;
-  }
-
   getLists() {
     return this.list;
   }
