@@ -16,7 +16,7 @@ export class ListPage implements OnInit {
   constructor(private listService: ListService, private authService: AuthService) {
   }
 
-  uid = this.authService.isLogged;
+  uid = this.authService.isLogged.uid;
 
   ngOnInit() {
     this.listService.getLists().subscribe(res => {

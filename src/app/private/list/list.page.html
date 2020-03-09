@@ -19,13 +19,12 @@
   </div>
   
   <div class="ion-margin-top" style="overflow: hidden;">
-  
-    <ion-card *ngFor="let list of lists">  
-    <ion-card-content>
+    <ion-card *ngFor="let lista of lists">  
+    <ion-card-content *ngIf="lista.uid == uid">
         <ion-item>
-          <ion-label>{{ list.description }}</ion-label>
+          <ion-label>{{ lista.description }}</ion-label>
           <ion-checkbox slot="start"></ion-checkbox>
-          <ion-button color="warning" [routerLink]="['/list-details', list.id]">
+          <ion-button color="warning" [routerLink]="['/list-details', lista.id]">
             <ion-icon name="pencil"></ion-icon>
           </ion-button>
         </ion-item>
