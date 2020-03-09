@@ -1,22 +1,32 @@
+import { AuthGuard } from './core/guards/auth.guard';
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes, CanLoad } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'tabs',
-    loadChildren: () => import('./shared/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./shared/tabs/tabs.module').then(m => m.TabsPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'list/:id',
+    loadChildren: () => import('./private/list/list.module').then( m => m.ListPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'list',
-    loadChildren: () => import('./private/list/list.module').then( m => m.ListPageModule)
+    loadChildren: () => import('./private/list/list.module').then( m => m.ListPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'add',
-    loadChildren: () => import('./private/add/add.module').then( m => m.AddPageModule)
+    loadChildren: () => import('./private/add/add.module').then( m => m.AddPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./private/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./private/profile/profile.module').then( m => m.ProfilePageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'templates',
@@ -29,6 +39,11 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./public/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'list-details/:id',
+    loadChildren: () => import('./private/list-details/list-details.module').then( m => m.ListDetailsPageModule),
+    canLoad: [AuthGuard]
   }
 ];
 @NgModule({
